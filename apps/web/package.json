@@ -1,0 +1,35 @@
+{
+  "name": "@meetlocal/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/copy-ort.mjs && node scripts/copy-mediapipe.mjs && vite",
+    "build": "node scripts/copy-ort.mjs && node scripts/copy-mediapipe.mjs && tsc -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "fetch:face-model": "node scripts/fetch-face-model.mjs",
+    "fetch:segmenter-model": "node scripts/fetch-segmenter-model.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "@mediapipe/tasks-vision": "^1.1.0",
+    "@meetlocal/shared": "*",
+    "lucide-react": "^1.55.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^30.1.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
+  }
+}

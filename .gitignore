@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+coverage/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local AI model weights (never commit)
+apps/web/public/models/*
+!apps/web/public/models/README.md
+*.gguf
+*.bin
+*.onnx
+*.task
+*.tflite
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Copied from onnxruntime-web by apps/web/scripts/copy-ort.mjs
+apps/web/public/ort/
+apps/web/public/mediapipe/

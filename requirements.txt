@@ -1,0 +1,6 @@
+# Python is used ONLY for the real-browser end-to-end scripts in scripts/*.py.
+# The app itself is Node/TypeScript (see package.json); nothing here is needed to run or deploy MeetLocal.
+#
+# After installing, fetch a browser once:  python3 -m playwright install chromium
+# Run a script:  MEETLOCAL_BASE=http://localhost:5173 python3 -I scripts/e2e-two-browser-call.py
+playwright==1.56.0
