@@ -20,6 +20,7 @@ npm-debug.log*
 # Local AI model weights (never commit)
 apps/web/public/models/*
 !apps/web/public/models/README.md
+!apps/web/public/models/selfie_segmenter.tflite
 *.gguf
 *.bin
 *.onnx
@@ -34,3 +35,4 @@ apps/web/public/models/*
 # Copied from onnxruntime-web by apps/web/scripts/copy-ort.mjs
 apps/web/public/ort/
 apps/web/public/mediapipe/
+
