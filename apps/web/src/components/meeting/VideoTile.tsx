@@ -18,6 +18,13 @@ interface VideoTileProps {
   sinkId?: string;
 }
 
+/** A calm, stable colour per person so avatars are easy to tell apart (white initials stay readable). */
+export function avatarColor(name: string): string {
+  let hash = 0;
+  for (const char of name) hash = (hash * 31 + char.charCodeAt(0)) % 360;
+  return `hsl(${hash} 42% 36%)`;
+}
+
 export function VideoTile({
   name,
   isLocal = false,
@@ -36,7 +43,7 @@ export function VideoTile({
     <figure className="tile" aria-label={label}>
       {!showVideo ? (
         <div className="tile__body">
-          <span className="tile__avatar" aria-hidden="true">
+          <span className="tile__avatar" aria-hidden="true" style={{ background: avatarColor(name) }}>
             {initial}
           </span>
           {placeholder ? <p className="tile__placeholder">{placeholder}</p> : null}

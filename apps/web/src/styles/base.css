@@ -12,7 +12,7 @@ body,
 
 body {
   margin: 0;
-  background: radial-gradient(1200px 600px at 20% -10%, #14323a 0%, transparent 60%), var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font);
   font-size: 16px;
@@ -59,6 +59,11 @@ code {
 
 .small {
   font-size: 0.875rem;
+}
+
+/* Keep the area behind the dark meeting room dark too (overscroll, notches). */
+body:has(.meeting) {
+  background: #0b1120;
 }
 
 @media (prefers-reduced-motion: reduce) {

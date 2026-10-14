@@ -56,6 +56,14 @@ const PANEL_BUTTON_LABEL: Record<PanelName, string> = {
   camera: 'Camera check',
 };
 
+const TAB_PANELS: readonly PanelName[] = ['chat', 'notes', 'transcript', 'assistant'];
+const TAB_LABEL: Partial<Record<PanelName, string>> = {
+  chat: 'Chat',
+  notes: 'Notes',
+  transcript: 'Transcript',
+  assistant: 'AI Assistant',
+};
+
 const STATUS_LABEL: Record<SessionStatus, string> = {
   starting: 'Starting…',
   waiting: 'Waiting for others to join',
@@ -214,6 +222,11 @@ function ActiveMeeting({ roomId, displayName, intent }: ActiveMeetingProps) {
   function togglePanel(panel: PanelName) {
     if (panel === 'assistant') setAssistantOpened(true);
     setOpenPanel((current) => (current === panel ? null : panel));
+  }
+
+  function selectPanel(panel: PanelName) {
+    if (panel === 'assistant') setAssistantOpened(true);
+    setOpenPanel(panel);
   }
 
   function selectDevice(kind: 'camera' | 'microphone', id: string) {
@@ -425,6 +438,22 @@ function ActiveMeeting({ roomId, displayName, intent }: ActiveMeetingProps) {
                 <X size={14} aria-hidden="true" />
               </button>
             </div>
+            {TAB_PANELS.includes(openPanel) ? (
+              <div role="tablist" aria-label="Meeting tools" className="panel-tabs">
+                {TAB_PANELS.map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    role="tab"
+                    aria-selected={name === openPanel}
+                    className={`panel-tabs__tab${name === openPanel ? ' panel-tabs__tab--on' : ''}`}
+                    onClick={() => selectPanel(name)}
+                  >
+                    {TAB_LABEL[name]}
+                  </button>
+                ))}
+              </div>
+            ) : null}
             {openPanel === 'chat' ? (
               <ChatPanel
                 messages={state?.chat ?? []}

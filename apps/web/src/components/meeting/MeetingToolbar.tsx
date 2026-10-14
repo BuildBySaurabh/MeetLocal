@@ -146,6 +146,12 @@ export function MeetingToolbar({
         badge={unreadChat}
       />
       <ToolbarButton
+        label="People"
+        icon={<Users size={20} aria-hidden="true" />}
+        onClick={() => onTogglePanel('participants')}
+        active={openPanel === 'participants'}
+      />
+      <ToolbarButton
         label="Transcript"
         icon={<Subtitles size={20} aria-hidden="true" />}
         onClick={() => onTogglePanel('transcript')}
@@ -176,12 +182,6 @@ export function MeetingToolbar({
         icon={<ScanFace size={20} aria-hidden="true" />}
         onClick={() => onTogglePanel('camera')}
         active={openPanel === 'camera' || cameraCheckOn}
-      />
-      <ToolbarButton
-        label="People"
-        icon={<Users size={20} aria-hidden="true" />}
-        onClick={() => onTogglePanel('participants')}
-        active={openPanel === 'participants'}
       />
       <ToolbarButton
         label="Devices"

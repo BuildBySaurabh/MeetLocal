@@ -1,4 +1,4 @@
-import { ArrowRight, Lock, Plus, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Link as LinkIcon, Lock, Plus, ShieldCheck, Sparkles } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createMeeting, parseMeetingInput } from '../features/rooms/room.service';
@@ -27,15 +27,13 @@ export function HomePage() {
   }
 
   return (
-    <main className="page">
+    <main className="page page--home">
       <section className="hero">
-        <p className="eyebrow">
-          <Lock size={14} aria-hidden="true" /> Private by design
-        </p>
-        <h1 className="hero__title">Video meetings that keep your conversations on your device.</h1>
+        <h1 className="hero__title">
+          Connect. Collaborate. <span className="hero__accent">Privately.</span>
+        </h1>
         <p className="hero__lead">
-          Start a meeting, share the link, and talk. Media goes directly between participants when the network allows
-          it, and optional AI features run locally, never in a cloud AI service.
+          Secure video meetings with local AI. No cloud AI, no recording, just you and your conversations.
         </p>
 
         <div className="hero__actions">
@@ -48,57 +46,80 @@ export function HomePage() {
             <label className="sr-only" htmlFor="meeting-input">
               Meeting link or ID
             </label>
-            <input
-              id="meeting-input"
-              className="input"
-              type="text"
-              inputMode="url"
-              autoComplete="off"
-              spellCheck={false}
-              placeholder="Paste a meeting link or ID"
-              value={input}
-              aria-invalid={error ? true : undefined}
-              aria-describedby={error ? 'meeting-input-error' : undefined}
-              onChange={(event) => {
-                setInput(event.target.value);
-                if (error) setError(null);
-              }}
-            />
-            <button type="submit" className="btn btn--secondary btn--lg" disabled={input.trim() === ''}>
-              Join
-              <ArrowRight size={18} aria-hidden="true" />
-            </button>
+            <div className="join-form__field">
+              <LinkIcon size={18} aria-hidden="true" />
+              <input
+                id="meeting-input"
+                className="join-form__input"
+                type="text"
+                inputMode="url"
+                autoComplete="off"
+                spellCheck={false}
+                placeholder="Paste a meeting link or ID"
+                value={input}
+                aria-invalid={error ? true : undefined}
+                aria-describedby={error ? 'meeting-input-error' : undefined}
+                onChange={(event) => {
+                  setInput(event.target.value);
+                  if (error) setError(null);
+                }}
+              />
+              <button type="submit" className="join-form__go" aria-label="Join" disabled={input.trim() === ''}>
+                <ArrowRight size={18} aria-hidden="true" />
+              </button>
+            </div>
           </form>
-          {error ? (
-            <p id="meeting-input-error" className="field-error" role="alert">
-              {error}
-            </p>
-          ) : null}
+        </div>
+        {error ? (
+          <p id="meeting-input-error" className="field-error" role="alert">
+            {error}
+          </p>
+        ) : null}
+      </section>
+
+      <section className="features" aria-label="Why MeetLocal">
+        <div className="feature">
+          <span className="feature__icon" aria-hidden="true">
+            <ShieldCheck size={20} />
+          </span>
+          <h2 className="feature__title">Your data stays local</h2>
+          <p className="feature__text">No cloud AI. No recording.</p>
+        </div>
+        <div className="feature">
+          <span className="feature__icon" aria-hidden="true">
+            <Lock size={20} />
+          </span>
+          <h2 className="feature__title">Direct peer-to-peer</h2>
+          <p className="feature__text">Media stays between you.</p>
+        </div>
+        <div className="feature">
+          <span className="feature__icon" aria-hidden="true">
+            <Sparkles size={20} />
+          </span>
+          <h2 className="feature__title">AI-powered (optional)</h2>
+          <p className="feature__text">Transcription, notes and more.</p>
         </div>
       </section>
 
-      <section className="card privacy-card" aria-labelledby="privacy-heading">
-        <h2 id="privacy-heading" className="card__title">
-          <ShieldCheck size={18} aria-hidden="true" /> What stays where
-        </h2>
+      <details className="privacy-details">
+        <summary>What stays where</summary>
         <ul className="plain-list">
           <li>
             <strong>Between participants:</strong> audio and video, sent peer-to-peer when a direct connection succeeds.
           </li>
           <li>
-            <strong>Through the signaling server:</strong> only connection setup data (names, room ID, network
-            candidates). No media and no transcripts.
+            <strong>Through the signaling server:</strong> connection setup data (names, room ID, network candidates),
+            plus chat and any transcript lines someone chooses to share. Never audio or video.
           </li>
           <li>
-            <strong>On your device only:</strong> transcripts, notes and AI conversations, if you enable those features
-            later.
+            <strong>On your device only:</strong> speech-to-text, translation, assistant answers and background effects.
           </li>
           <li>
             <strong>Caveat:</strong> finding a connection path uses a STUN server and sometimes a relay, which can see
-            network addresses. See the privacy notes for details.
+            network addresses.
           </li>
         </ul>
-      </section>
+      </details>
     </main>
   );
 }

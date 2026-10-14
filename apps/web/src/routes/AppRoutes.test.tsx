@@ -96,7 +96,7 @@ describe('home page', () => {
     renderAt('/');
     expect(screen.getByRole('button', { name: /new meeting/i })).toBeTruthy();
     expect(screen.getByLabelText(/meeting link or id/i)).toBeTruthy();
-    expect(screen.getByRole('heading', { name: /what stays where/i })).toBeTruthy();
+    expect(screen.getByText(/what stays where/i)).toBeTruthy();
     expect(screen.getByRole('link', { name: /settings/i })).toBeTruthy();
   });
 

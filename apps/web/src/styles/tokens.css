@@ -1,32 +1,35 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Surfaces */
-  --bg: #0b1017;
-  --bg-elevated: #121a24;
-  --bg-raised: #1a2432;
-  --bg-input: #0f1620;
-  --border: #243044;
-  --border-strong: #33425a;
+  /* Light surfaces (home, join, settings) */
+  --bg: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --bg-raised: #eef2f8;
+  --bg-input: #ffffff;
+  --border: #e3e8f0;
+  --border-strong: #c9d2e0;
 
   /* Text */
-  --text: #e8eef6;
-  --text-muted: #9aa8bb;
-  --text-faint: #8d9bb0;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-faint: #566377;
 
   /* Accent and status */
-  --accent: #2dd4a8;
-  --accent-strong: #19b58c;
-  --accent-contrast: #04211a;
-  --danger: #f0605d;
-  --danger-strong: #d94643;
-  --warning: #f2b441;
-  --focus: #7dd3fc;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-contrast: #ffffff;
+  --accent-text: #1d4ed8;
+  --accent-soft: #e7eeff;
+  --danger: #dc2626;
+  --danger-strong: #b91c1c;
+  --danger-soft: #fde8e8;
+  --warning: #92400e;
+  --focus: #2563eb;
 
   /* Shape and spacing */
-  --radius-sm: 8px;
+  --radius-sm: 10px;
   --radius: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 22px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -35,7 +38,35 @@
   --space-6: 32px;
   --space-7: 48px;
 
-  --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 2px 10px rgba(15, 23, 42, 0.06);
+}
+
+/* The meeting room is dark so faces and shared screens stand out. Same tokens, darker values. */
+.meeting,
+.modal-backdrop {
+  color-scheme: dark;
+  --bg: #0b1120;
+  --bg-elevated: #121a2e;
+  --bg-raised: #1a2440;
+  --bg-input: #0e1526;
+  --border: #243152;
+  --border-strong: #35446e;
+  --text: #e8edf7;
+  --text-muted: #a8b4cc;
+  --text-faint: #93a1bc;
+  --accent: #3b6cf6;
+  --accent-strong: #2f58d6;
+  --accent-contrast: #ffffff;
+  --accent-text: #86a8ff;
+  --accent-soft: #1b2a55;
+  --danger: #dc2626;
+  --danger-strong: #b91c1c;
+  --danger-soft: #3a1d24;
+  --warning: #f2b441;
+  --focus: #8fb0ff;
+  --shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
