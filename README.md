@@ -45,7 +45,7 @@ I built MeetLocal as a learning project to explore WebRTC, real-time signaling, 
 <!-- Add your screenshots to the repository, for example in docs/images/. -->
 
 <p align="center">
-  IMAGE
+  <img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/fa72b542-f6e9-4277-8561-e68909cf7e41" />
 </p>
 
 <p align="center">
